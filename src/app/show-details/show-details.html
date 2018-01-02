@@ -1,0 +1,18 @@
+<md-content>
+  <div style="text-align: center">
+  <h1>{{ showDetails.show.title }}</h1>
+
+  <section>
+    <h2>Album Id:</h2>
+    <p>{{ showDetails.show.albumId || '-' }}</p>
+  </section>
+  <section>
+    <h2>Title:</h2>
+    <p>{{ showDetails.show.title || '-' }}</p>
+  </section>
+    <section>
+      <img ng-src="{{ showDetails.show.url }}">
+    </section>
+
+  </div>
+</md-content>

@@ -1,0 +1,10 @@
+<form name="searchForm">
+	<md-input-container>
+		<label>{{description}}</label>
+		<input ng-model="searchValue" 
+           ng-change="onSearchChange({ $text: searchValue })"
+					 ng-model-options="{ debounce: 300 }"
+					 ng-minlength="3">
+		</input>
+	</md-input-container>
+</form>

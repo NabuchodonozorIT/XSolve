@@ -1,0 +1,38 @@
+<div layout="column">
+  <div flex layout="row"
+       layout-align="center center"
+       layout-padding>
+
+      <api-search-input
+              on-search-change="home.onSearchChange($text)"
+              description="Photo Search:">
+      </api-search-input>
+      <api-button
+              ng-click="home.getListOfAlbum()"
+              label="Display Elements">
+      </api-button>
+
+  </div>
+  <md-diver></md-diver>
+  <div flex layout="row"
+       layout-wrap layout-align="center center">
+      <md-card ng-repeat="item in home.itemList"
+               ng-click="home.onItemClick(item)"
+               class="home-card"
+               md-theme-watch>
+        <div class="home-item-card"
+             ng-style="{'background-image': 'url('+ item.thumbnailUrl + ')'}">
+
+        </div>
+        <div class="home-item-title">
+          <div class="home-item-card"
+               ng-style="{'background-image': 'url('+ item.thumbnailUrl + ')'}">
+
+          </div>
+            <span class="home-movie-tile-text"> {{ item.title }}</span>
+
+      </md-card>
+    </div>
+  </div>
+
+</div>

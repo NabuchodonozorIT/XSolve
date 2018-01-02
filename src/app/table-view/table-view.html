@@ -1,0 +1,41 @@
+<div layout="column">
+  <div flex layout="row"
+       layout-align="center center"
+       layout-padding>
+
+      <api-search-input
+              on-search-change="tableView.onSearchChange($text)"
+              description="Filter:">
+      </api-search-input>
+
+      <api-button
+              ng-click="tableView.getListOfAlbum()"
+              label="Display Elements">
+      </api-button>
+
+      <md-select ng-if="tableView.itemList.length" ng-model="tableView.selectRange" ng-change="tableView.getListOfAlbum()">
+          <md-option ng-value="range" ng-repeat="range in tableView.rangeOfElements">{{ range.label }}</md-option>
+      </md-select>
+
+  </div>
+
+    <md-tabs>
+        <md-tab ng-repeat="table in tableView.itemList" label="{{table.nameTable}}">
+            <table id="customers">
+
+                <tr>
+                    <th ng-class="{'glyphicon-chevron-up': tableView.orderByColumn == 'id'}" ng-click="tableView.changeOrder('id')">NR.</th>
+                    <th ng-click="tableView.changeOrder('albumId')">Album ID</th>
+                    <th ng-click="tableView.changeOrder('title')">Title</th>
+                </tr>
+
+                <tr ng-repeat="elem in table.elements  | filter: tableView.filterBy | orderBy: tableView.orderByColumn : tableView.orderByDir ">
+                    <td>{{ elem.id}}</td>
+                    <td>{{ elem.albumId }}</td>
+                    <td>{{ elem.title }}</td>
+                </tr>
+            </table>
+        </md-tab>
+    </md-tabs>
+
+  </div>

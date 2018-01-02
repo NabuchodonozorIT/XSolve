@@ -1,0 +1,3 @@
+<md-select ng-if="itemList.length" ng-model="selectRange" ng-change="getListOfAlbum()">
+	<md-option ng-value="range" ng-repeat="range in rangeOfElements">{{ range.label }}</md-option>
+</md-select>
